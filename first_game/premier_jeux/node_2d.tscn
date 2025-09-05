@@ -1,6 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://0eqwdwh5lnmv"]
+[gd_scene load_steps=5 format=3 uid="uid://0eqwdwh5lnmv"]
 
-[ext_resource type="Texture2D" uid="uid://d2nesdh3t244" path="res://DSC01252.JPG" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://dfchg1hqjy1d5" path="res://image_anim/masterroshi_1.png" id="1_epypp"]
+[ext_resource type="Texture2D" uid="uid://dk7ol3yosyebt" path="res://image_anim/masterroshi_2.png" id="2_0hol4"]
+[ext_resource type="Texture2D" uid="uid://m0lw2oi6ho7r" path="res://image_anim/masterroshi_3.png" id="3_q6r6c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdubu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_epypp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0hol4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q6r6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0hol4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2(1.00296, 1)
@@ -12,13 +34,46 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(28.649, 15.9281)
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.998996, 0.986925)
-texture = ExtResource("1_wtcfe")
-expand_mode = 2
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 0.0696068
+offset_top = -0.0627823
+offset_right = 40.0696
+offset_bottom = 40.9372
+color = Color(0, 1, 1, 1)
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 718.872
+offset_top = 32.0
+offset_right = 822.872
+offset_bottom = 141.0
+scale = Vector2(0.999932, 0.999932)
+text = "play
+2"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimatedSprite2D_1" type="AnimatedSprite2D" parent="AnimationPlayer"]
+position = Vector2(360, 260)
+scale = Vector2(2.79163, 2.79576)
+sprite_frames = SubResource("SpriteFrames_kdubu")
+frame = 1
+frame_progress = 0.149542
+
+[node name="Button" type="Button" parent="."]
+offset_left = 279.174
+offset_top = 22.0
+offset_right = 383.174
+offset_bottom = 131.0
+text = "play
+1"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+
+[node name="AnimatedSprite2D_2" type="AnimatedSprite2D" parent="AnimationPlayer2"]
+position = Vector2(768, 386)
+scale = Vector2(6.46872, 6.47831)
+sprite_frames = SubResource("SpriteFrames_kdubu")
+frame = 2
+frame_progress = 0.370703
